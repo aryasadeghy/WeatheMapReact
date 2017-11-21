@@ -1,2 +1,5 @@
-# WeatheMapReact
-React app with openWeatherMap API
+# intall and Run 
+
+```
+npm install && npm start 
+```

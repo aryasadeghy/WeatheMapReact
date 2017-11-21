@@ -1,0 +1,7 @@
+a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 23px;
+  -webkit-text-decoration-skip: objects;
+}
