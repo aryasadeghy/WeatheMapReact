@@ -3,11 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import {Link} from 'react-router-dom'
 
-class Nav extends Component {
-  
-  render() {
-    
-    return (
+const Nav = (props) => (
+
 <nav className="navbar navbar-dark bg-primary navbar-expand-md py-md-2">
     <a className="navbar-brand" href="#">Bootstrap 4</a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +26,7 @@ class Nav extends Component {
         </ul>
     </div>
 </nav>
-
     );
-  }
-}
+
 
 export default Nav;

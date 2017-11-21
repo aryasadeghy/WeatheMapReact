@@ -2,15 +2,13 @@
 import React, { Component } from 'react';
 
 import './style.css';
-
-export default class About extends Component {
-  render() {
-    return (
+ const About = (props) => (
       <div className='About'>
         <h1>
           About
         </h1>
       </div>
-    );
-  }
-}
+);
+
+
+export default About

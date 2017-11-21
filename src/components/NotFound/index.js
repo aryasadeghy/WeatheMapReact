@@ -3,14 +3,12 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-export default class NotFound extends Component {
-  render() {
-    return (
+
+const NotFound = (props) => (
       <div className='NotFound'>
         <h1>
           404 <small>Not Found :(</small>
         </h1>
       </div>
     );
-  }
-}
+export default NotFound
