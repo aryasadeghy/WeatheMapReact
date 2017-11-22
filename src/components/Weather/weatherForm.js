@@ -11,7 +11,7 @@ export default class WeatherForm extends Component {
         e.preventDefault();
         let location = this.refs.location.value;
         if(location.length > 0){
-            this.refs.location = "";
+            this.refs.location.value = "";
             this.props.onSearch(location);
         }
     }
