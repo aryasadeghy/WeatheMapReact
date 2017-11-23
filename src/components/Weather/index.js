@@ -4,32 +4,40 @@ import './index.css'
 import WeatherForm from './weatherForm'
 import WeatherMessage from './weatherMessage'
 import WeatherFetch from  '../../api/getWeatherMap';
+import ErrorModal from '../Error/index'
+
 export default class Weather extends Component {
     constructor(props){
         super(props)
         this.state =  {
-            isLoading : false
+            isLoading : false,
         }
         this.handleSearch = this.handleSearch.bind(this)
     }
     handleSearch(location){
         this.setState({
-            isLoading : true
+            isLoading : true,
+            errorMessage : undefined
+            
         })
-        WeatherFetch.getTemp(location).then((res)=>{
+        WeatherFetch.getTemp(location).then((res,err)=>{
             this.setState({
                 location : location,
                 temp: res,
                 isLoading: false
 
             })
+            console.log(res,err)
         },(err)=>{
-            alert(err)
-        })
-        
+            this.setState({
+                isLoading:false,
+                errorMessage: err.message
+            })
+            console.log(err)
+        })   
     }
     render() {
-        let {isLoading, location, temp} = this.state
+        let {isLoading, location, temp, errorMessage} = this.state
         let renderMessage = ()=>{
             if (isLoading){
                 return ( 
@@ -41,12 +49,18 @@ export default class Weather extends Component {
                 return ( <WeatherMessage location={location} temp={temp}/>)                
             }
         }
+        let renderModal=()=>{
+            if(typeof errorMessage == 'string'){
+                return    <ErrorModal message={errorMessage}/>
+            }
+        }
         return (
             <div className="container"> 
             <div className="col-centered"> 
                 <h1 className="header">  Weather Form</h1>
                 <WeatherForm onSearch={this.handleSearch}/>
                 {renderMessage()}
+                {renderModal()}
                 </div>
           </div> 
         );
