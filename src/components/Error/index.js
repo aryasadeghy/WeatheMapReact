@@ -9,11 +9,12 @@ class ErrorModal extends Component {
         this.state = {
           modal: false
         };
+        this.close=this.close.bind(this)
     }
     close(){
         this.setState({
-            modal: false
-        })
+            modal: !this.state.modal
+        });
     }
     componentDidMount() {
     this.setState({
@@ -40,5 +41,7 @@ ErrorModal.propTypes = {
     message: PropTypes.string.isRequired,
     title : PropTypes.string.isRequired
   };
-
+  ErrorModal.defaultProps = {  
+    title: "Error",  
+}
 export default ErrorModal
