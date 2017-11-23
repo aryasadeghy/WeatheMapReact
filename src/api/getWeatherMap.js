@@ -7,13 +7,14 @@ export default  {
         const encoded = encodeURIComponent(location);
         const requesrUrl = `${GET_WEATHERMAP_URL}&q=${encoded}`;
        return  Axios.get(requesrUrl).then(res => {
-                if(res.data.cod && res.data.message) {
-                    throw new Error(res.data.message)
-                }else{
-                    return res.data.main.temp
-                }
-        },res => {
+        if(res.data.cod && res.data.message) {
             throw new Error(res.data.message)
-        })
+          }else{
+            return res.data.main.temp
+          }
+        }).catch(function (error) {
+            throw new Error(error)
+        });
+        
     }
 };
