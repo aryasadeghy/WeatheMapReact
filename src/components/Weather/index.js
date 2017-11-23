@@ -5,6 +5,7 @@ import WeatherForm from './weatherForm'
 import WeatherMessage from './weatherMessage'
 import WeatherFetch from  '../../api/getWeatherMap';
 import ErrorModal from '../Error/index'
+import queryString from 'query-string';
 
 export default class Weather extends Component {
     constructor(props){
@@ -14,6 +15,14 @@ export default class Weather extends Component {
         }
         this.handleSearch = this.handleSearch.bind(this)
     }
+    componentDidMount(){
+         var parsed = queryString.parse(this.props.location.search);
+         console.log(parsed)
+        if (parsed){
+             this.handleSearch(parsed.location)
+             window.location.hash ='#/'
+         }
+     }
     handleSearch(location){
         this.setState({
             isLoading : true,
@@ -69,3 +78,4 @@ export default class Weather extends Component {
 
 
 
+  
