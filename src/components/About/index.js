@@ -1,5 +1,5 @@
 // src/components/About/index.js
-import React, { Component } from 'react';
+import React from 'react';
 
 import './style.css';
  const About = (props) => (

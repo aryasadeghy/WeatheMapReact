@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import Nav from './../Nav/index'
+import Navigation from './../Nav/index'
 
-class App extends Component {
+const App = (props) => {
   
-  render() {    
     return (
     <div  className='About'>
-      <Nav />
+      <Navigation />
+      {props.children}
      </div>
     );
-  }
+  
 }
 
 export default App;
