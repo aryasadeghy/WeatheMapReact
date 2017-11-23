@@ -4,12 +4,16 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "bootstrap": "^4.0.0-beta.2",
     "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
     "react": "^16.1.1",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "reactstrap": "^5.0.0-alpha.4"
   },
   "scripts": {
     "start": "react-scripts start",
