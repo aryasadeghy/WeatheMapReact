@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import './index.css'
-
 import WeatherForm from './weatherForm'
 import WeatherMessage from './weatherMessage'
 import WeatherFetch from  '../../api/getWeatherMap';
@@ -49,11 +48,9 @@ export default class Weather extends Component {
         let {isLoading, location, temp, errorMessage} = this.state
         let renderMessage = ()=>{
             if (isLoading){
-                return ( 
-                    
+                return (        
                 <h3 className='message'> Fetching Data ... </h3>
-            )
-                
+            )  
             }else if(temp, location){
                 return ( <WeatherMessage location={location} temp={temp}/>)                
             }

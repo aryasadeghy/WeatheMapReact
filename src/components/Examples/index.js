@@ -6,7 +6,6 @@ const Examples = (props) => (
       <div className='NotFound'>
         <h1>
         <Link to="/?location=qazvin">qazvin</Link>
-
         </h1>
       </div>
     );
