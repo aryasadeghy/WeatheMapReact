@@ -16,26 +16,26 @@ export default class Weather extends Component {
     }
     componentDidMount(){
          var parsed = queryString.parse(this.props.location.search);
-         console.log(parsed)
-        if (parsed){
+         console.log(window.location)
+         
+        if (parsed.location && parsed.location.length > 0){
              this.handleSearch(parsed.location)
-             window.location.hash ='#/'
          }
      }
     handleSearch(location){
         this.setState({
             isLoading : true,
-            errorMessage : undefined
-            
+            location: undefined,
+            temp :undefined,
+            errorMessage : undefined    
         })
-        WeatherFetch.getTemp(location).then((res,err)=>{
+        WeatherFetch.getTemp(location).then((res)=>{
             this.setState({
                 location : location,
                 temp: res,
                 isLoading: false
-
             })
-            console.log(res,err)
+            console.log(res)
         },(err)=>{
             this.setState({
                 isLoading:false,
